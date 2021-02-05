@@ -2,7 +2,7 @@ import axios from 'axios' //引入axios
 //不再导出default,因为后期可能还会有别的实例，所以按实例导出
 //如果后期axios不再维护，我们可以更换其它框架，只需要引入新的框架，然后再用promise封装一下就好了
 //使用另外一个接口，由于老师的接口收费，所以改用另外一个免费接口
-export function request(config, success, failure) {
+export function requesthm(config, success, failure) {
 	//4、最终实现
 
 	//4.1、创建axios的实例
