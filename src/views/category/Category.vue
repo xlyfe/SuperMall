@@ -101,7 +101,7 @@
 			<li>商品分类98</li>
 			<li>商品分类99</li>
 			<li>商品分类100</li>
-			
+
 		</ul>
 
 	</div>
@@ -113,19 +113,37 @@
 	import BScroll from 'better-scroll'
 	export default {
 		name: "Category",
-		created() {
-			console.log(this.$refs.wrapper)
-			// let wrapper = document.querySelector('.wrapper')
-			// let scroll = new BScroll(wrapper)
-			this.$nextTick(() => {
-				this.scroll = new BScroll(this.$refs.wrapper, {})
+		data() {
+			return {
+				scroll: null
+			}
+		},
+		// created() {
+		// 	console.log(this.$refs.wrapper)
+		// 	// let wrapper = document.querySelector('.wrapper')
+		// 	// let scroll = new BScroll(wrapper)
+		// 	this.$nextTick(() => {
+		// 		this.scroll = new BScroll(this.$refs.wrapper, {})
+		// 	})
+		// },
+		mounted() {
+			this.scroll = new BScroll(this.$refs.wrapper, {
+				probeType: 3
 			})
+			//on(监听事件名称，回调函数)
+			this.scroll.on('scroll',(position)=>{
+				console.log(position)
+			})
+			
+			// this.scroll.on('pullingUp',()=>{
+				
+			// })
 		}
 
 	}
 </script>
 
-<style>
+<style scoped>
 	.wrapper {
 		overflow: hidden;
 		height: 300px;

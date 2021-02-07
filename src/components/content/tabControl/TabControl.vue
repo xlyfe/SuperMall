@@ -13,7 +13,7 @@
 		props: {
 			titles: {
 				type: Array,
-				default () {
+				default () {//是数组或对象时，default必须是一个函数
 					return ['流行', '新款', '精选']
 				}
 			}
@@ -21,7 +21,7 @@
 		data() {
 			return {
 				currentIndex: 0
-			}
+			} 
 		},
 		methods: {
 			itemClick(index) {

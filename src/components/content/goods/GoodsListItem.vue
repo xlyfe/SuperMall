@@ -1,7 +1,7 @@
 <template>
 	<div class="goods-item">
 		<a href="">
-			<img :src="goodsItem.goods_small_logo" alt="">
+			<img :src="goodsItem.goods_small_logo" @load="imageLoad">
 			<div class="goods-info">
 				<p>{{goodsItem.goods_name}}</p>
 				<span class="price">￥{{goodsItem.goods_price}}</span>
@@ -20,6 +20,15 @@
 				default(){
 					return {}
 				}
+			}
+		},
+		methods:{
+			imageLoad(){
+				// console.log('imageLoad。。。')
+				//1、要先在main.js中创建$Bus实例：Vue.prototype.$Bus=new Vue()
+				//事件总线$Bus回传，然后在Home中接收并处理。放在Created中监听
+				
+				this.$bus.emit('ItemImageLoad')
 			}
 		}
 	}
